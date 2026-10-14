@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>Portal Login</title>
+
+    <style>
+        /* Main page styling */
+        body {
+            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Login form container */
+        form {
+            width: 340px;
+            margin: 50px auto;
+            padding: 18px;
+            border: 2px solid #0b1a8d;
+            background-color: white;
+        }
+
+        /* Table structure */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Portal Login header */
+        thead th {
+            background-color: #1c1356;
+            color: white;
+            font-size: 24px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        /* Table cells */
+        tbody td {
+            padding: 10px;
+        }
+
+        /* Labels */
+        tbody td:first-child {
+            color: #3c17a1;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* Text and password inputs */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 7px;
+            box-sizing: border-box;
+            border: 1px solid #322394;
+            background-color: #f1f8e9;
+        }
+
+        /* Submit button */
+        input[type="submit"] {
+            background-color: #190460;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+
+        /* Reset button */
+        input[type="reset"] {
+            background-color: #684dd4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        /* Button alignment */
+        .buttons {
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 20px;
+        }
+
+        /* Footer / student information */
+        tfoot td {
+            color: #321b8b;
+            text-align: center;
+            font-size: 13px;
+            padding: 15px 5px 5px 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <table>
+
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th colspan="2">Portal Login</th>
+                </tr>
+            </thead>
+
+            <!-- Form Content -->
+            <tbody>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Enter Username"
+                        >
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Enter Password"
+                        >
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="buttons">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </tbody>
+
+            <!-- Student Credit -->
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        Created by: Your Name - 2nd Year &amp; Section A
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </form>
+
+</body>
+</html>
