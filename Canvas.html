@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Tree Canvas</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: #1a1a2e;
+        }
+        #xmasCanvas {
+            border: solid 2px #4ecca3;
+            background-color: #0f3460;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="xmasCanvas" width="800" height="500"></canvas>
+
+    <script>
+        const canvas = document.getElementById("xmasCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Trunk
+        ctx.fillStyle = "#8B5A2B";
+        ctx.fillRect(370, 360, 60, 80);
+
+        // 3 Tree Layers (bottom, middle, top)
+        const layers = [
+            { topY: 180, bottomY: 380, halfWidth: 150, color: "#2e8b57" },
+            { topY: 120, bottomY: 270, halfWidth: 120, color: "#3cb371" },
+            { topY: 60,  bottomY: 170, halfWidth: 80,  color: "#2e8b57" }
+        ];
+
+        ctx.strokeStyle = "#1b4332";
+        ctx.lineWidth = 2;
+
+        layers.forEach(layer => {
+            ctx.beginPath();
+            ctx.moveTo(400, layer.topY);
+            ctx.lineTo(400 - layer.halfWidth, layer.bottomY);
+            ctx.lineTo(400 + layer.halfWidth, layer.bottomY);
+            ctx.closePath();
+            ctx.fillStyle = layer.color;
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        // Star
+        ctx.fillStyle = "#ffd700";
+        ctx.beginPath();
+        ctx.arc(400, 42, 16, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Ornaments
+        const ornaments = [
+            { x: 400, y: 135, color: "#ff4757" },
+            { x: 360, y: 205, color: "#1e90ff" },
+            { x: 435, y: 225, color: "#ffa502" },
+            { x: 330, y: 315, color: "#ff4757" },
+            { x: 400, y: 295, color: "#a855f7" },
+            { x: 470, y: 335, color: "#1e90ff" }
+        ];
+
+        ornaments.forEach(orn => {
+            ctx.fillStyle = orn.color;
+            ctx.beginPath();
+            ctx.arc(orn.x, orn.y, 9, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        // Merry Christmas Text
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 32px Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("Merry Christmas", canvas.width / 2, 475);
+    </script>
+</body>
+</html>
