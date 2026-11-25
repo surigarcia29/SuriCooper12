@@ -122,9 +122,13 @@
             margin: 0;
         }
 
-        /* ABOUT PAGE CENTERED LAYOUT */
+        /* ABOUT PAGE SIDE-BY-SIDE LAYOUT */
         .about-layout {
-            max-width: 650px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            align-items: start;
+            max-width: 900px;
             margin: 0 auto;
             text-align: left;
         }
@@ -178,6 +182,115 @@
             line-height: 1.6;
             font-size: 15px;
             color: #4a044e;
+        }
+
+        /* PROFILE CARD ON THE RIGHT */
+        .profile-card {
+            background: #ffffff;
+            border: 2px solid #f0abfc;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(217, 70, 239, 0.12);
+        }
+
+        .profile-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h3 {
+            font-size: 20px;
+            color: #831843;
+            margin: 0 0 15px 0;
+        }
+
+        .profile-info {
+            text-align: left;
+            font-size: 14px;
+            color: #581c87;
+            border-top: 1px solid #f5d0fe;
+            padding-top: 15px;
+            line-height: 1.5;
+        }
+
+        .profile-info p {
+            margin: 0 0 8px 0;
+        }
+
+        .profile-info span {
+            font-weight: bold;
+            color: #831843;
+        }
+
+        /* GALLERY SLIDESHOW STYLES */
+        .gallery-subtitle {
+            color: #701a75;
+            font-size: 15px;
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .gallery-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #27272a;
+            border-radius: 14px;
+            padding: 16px 16px 18px 16px;
+            box-shadow: 0 6px 20px rgba(112, 26, 117, 0.18);
+        }
+
+        .gallery-frame {
+            width: 100%;
+            height: 400px;
+            background-color: #09090b;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .gallery-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-controls {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .gallery-btn {
+            background-color: #e4e4e7;
+            color: #18181b;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.15s;
+        }
+
+        .gallery-btn:hover {
+            background-color: #f472b6;
+            color: #ffffff;
+        }
+
+        .gallery-counter {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            min-width: 45px;
         }
 
         .portfolio-grid {
@@ -277,6 +390,14 @@
         }
 
         @media (max-width: 760px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-frame {
+                height: 300px;
+            }
+
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -346,6 +467,7 @@
         <section id="about" class="page">
             <div class="container">
                 <div class="about-layout">
+                    <!-- Left Side: Accordion Boxes -->
                     <div class="about-wrapper">
                         <!-- Box 1: About Me -->
                         <div class="about-box-container">
@@ -385,6 +507,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Right Side: Profile Card -->
+                    <div class="profile-card">
+                        <img src="ab06d5a4-85eb-4fd0-9c0a-f31bde1465db.jpg" alt="Precious Suri Garcia" class="profile-img">
+                        <h3>Hello! I'm Precious.</h3>
+                        <div class="profile-info">
+                            <p><span>School:</span> Gov. Juanito Reyes Remulla Senior High School</p>
+                            <p><span>Strand:</span> TVL - ICT (Section Cooper)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -393,7 +525,18 @@
         <section id="gallery" class="page">
             <div class="container">
                 <h1>My Gallery</h1>
-                <p>Welcome to my photo gallery</p>
+                <p class="gallery-subtitle">Welcome to my photo gallery</p>
+
+                <div class="gallery-box">
+                    <div class="gallery-frame">
+                        <img id="galleryImage" src="e30797de-8f11-4806-b55d-c82fde09062a.jpg" alt="Gallery Photo 1">
+                    </div>
+                    <div class="gallery-controls">
+                        <button type="button" class="gallery-btn" onclick="changeSlide(-1)">Previous</button>
+                        <span id="galleryCounter" class="gallery-counter">1 / 5</span>
+                        <button type="button" class="gallery-btn" onclick="changeSlide(1)">Next</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -407,16 +550,14 @@
                     <a href="DiscountCalculator.html" class="portfolio-button">Discount Calculator</a>
                     <a href="FormElements.html" class="portfolio-button">Form Elements</a>
                     <a href="ClassSchedule.html" class="portfolio-button">Class Schedule</a>
-                    <a href="ClassScheduleStyle.html" class="portfolio-button">Class Schedule Style</a>
-                    <a href="MyPhotoGallery.html" class="portfolio-button">My Photo Gallery</a>
                     <a href="Login.html" class="portfolio-button">Login Logic</a>
+                    <a href="ClassScheduleStyle.html" class="portfolio-button">Class Schedule Style</a>
                     <a href="Logic.html" class="portfolio-button">Login</a>
                     <a href="SaveGrades.html" class="portfolio-button">Grades</a>
                     <a href="Canvas.html" class="portfolio-button">Canvas Tree</a>
                     <a href="NETDeveloperProfile.html" class="portfolio-button">NETDeveloperProfile</a>
                     <a href="DragAndDrop.html" class="portfolio-button">DragAndDrop</a>
                     <a href="GridPage.html" class="portfolio-button">Grid</a>
-                    <a href="SvgGraphics.html" class="portfolio-button">Shape</a>
                 </div>
             </div>
         </section>
@@ -480,6 +621,26 @@
                 body.classList.add('open');
                 arrow.textContent = '▾';
             }
+        }
+
+        // Gallery Slideshow Script (Replace with your 5 image filenames)
+        const galleryImages = [
+            "e30797de-8f11-4806-b55d-c82fde09062a.jpg",
+            "85e6a2cb-85c6-47bb-be97-b37854ad9db2.jpg",
+            "6465a381-ed64-4948-9825-bf850d5d39ee.jpg",
+            "fcf0f675-9926-4d12-b1d9-ea3e38387cbe.jpg",
+            "e26853f9-2427-403d-9449-96f8611c77f6.jpg",
+        ];
+        let currentSlide = 0;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + galleryImages.length) % galleryImages.length;
+            const imgElement = document.getElementById("galleryImage");
+            const counterElement = document.getElementById("galleryCounter");
+
+            imgElement.src = galleryImages[currentSlide];
+            imgElement.alt = "Gallery Photo " + (currentSlide + 1);
+            counterElement.textContent = (currentSlide + 1) + " / " + galleryImages.length;
         }
     </script>
 </body>
