@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom right, #f4f9f5, #e3f1e7);
+            color: #530c56;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* NORMAL GRID LAYOUT */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .grid-box {
+            background-color: #3d0e32;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .grid-box:hover {
+            background-color: #237a46;
+            transform: translateY(-3px);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #114225;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            color: #218448;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 850px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 9 BOX GRID -->
+        <div class="grid-container">
+            <div class="grid-box">1</div>
+            <div class="grid-box">2</div>
+            <div class="grid-box">3</div>
+            <div class="grid-box">4</div>
+            <div class="grid-box">5</div>
+            <div class="grid-box">6</div>
+            <div class="grid-box">7</div>
+            <div class="grid-box">8</div>
+            <div class="grid-box">9</div>
+        </div>
+
+</body>
+</html>
